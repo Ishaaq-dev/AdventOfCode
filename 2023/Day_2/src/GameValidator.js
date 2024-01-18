@@ -21,7 +21,16 @@ export function getValidGameId(gameLine, constraints) {
 
 export function getRequiredNumOfDice(gameLine) {
     const gameResult = getGame(gameLine);
-    
+    const requiredNumOfDice = {blue: 0, red: 0, green: 0};
+
+    gameResult.games.forEach(game => {
+        DICE_COLOURS.forEach(colour => {
+            if (game[colour] > requiredNumOfDice[colour])
+                requiredNumOfDice[colour] = game[colour];
+        });
+    });
+
+    return requiredNumOfDice;
 }
 
 export function getGame(gameLine) {

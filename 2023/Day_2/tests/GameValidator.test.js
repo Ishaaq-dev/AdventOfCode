@@ -76,7 +76,7 @@ describe('getRequiredNumOfDice()', () => {
             expect(result).to.deep.equal(expectedResult);
         });
         it('Game 3', () => {
-            const input = gamethree, expectedResult = {red: 20, green: 13, blue: 6};
+            const input = gameThree, expectedResult = {red: 20, green: 13, blue: 6};
 
             const result = getRequiredNumOfDice(input);
             expect(result).to.deep.equal(expectedResult);
