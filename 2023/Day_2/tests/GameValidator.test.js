@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getGame, getRequiredNumOfDice, getValidGameId } from "../src/GameValidator.js";
+import { getGame, getPowerOfGame, getRequiredNumOfDice, getValidGameId } from "../src/GameValidator.js";
 import { gameOne, gameTwo, gameThree, gameFour, gameFive } from "./testData.js";
 
 describe('getValidGameId()', () => {
@@ -92,6 +92,41 @@ describe('getRequiredNumOfDice()', () => {
 
             const result = getRequiredNumOfDice(input);
             expect(result).to.deep.equal(expectedResult);
+        });
+    });
+});
+
+describe('getPowerOfGame()', () => {
+    describe('should return a multiplication of all quantity of dice together', () => {
+        it('Game 1', () => {
+            const input = gameOne, expectedResult = 48;
+            const result = getPowerOfGame(input);
+
+            expect(result).to.equal(expectedResult);
+        });
+        it('Game 2', () => {
+            const input = gameTwo, expectedResult = 12;
+            const result = getPowerOfGame(input);
+
+            expect(result).to.equal(expectedResult);
+        });
+        it('Game 3', () => {
+            const input = gameThree, expectedResult = 1560;
+            const result = getPowerOfGame(input);
+
+            expect(result).to.equal(expectedResult);
+        });
+        it('Game 4', () => {
+            const input = gameFour, expectedResult = 630;
+            const result = getPowerOfGame(input);
+
+            expect(result).to.equal(expectedResult);
+        });
+        it('Game 5', () => {
+            const input = gameFive, expectedResult = 36;
+            const result = getPowerOfGame(input);
+
+            expect(result).to.equal(expectedResult);
         });
     });
 });

@@ -33,6 +33,12 @@ export function getRequiredNumOfDice(gameLine) {
     return requiredNumOfDice;
 }
 
+export function getPowerOfGame(gameLine) {
+    const requiredNumOfDice = getRequiredNumOfDice(gameLine);
+    const powerOfGame = Object.keys(requiredNumOfDice).reduce((accumulator, colour) => requiredNumOfDice[colour] * accumulator, 1);
+    return powerOfGame; 
+}
+
 export function getGame(gameLine) {
     const id = getGameId(gameLine);
     const games = getGameData(gameLine);
