@@ -19,6 +19,11 @@ export function getValidGameId(gameLine, constraints) {
         return gameResult.id;
 }
 
+export function getRequiredNumOfDice(gameLine) {
+    const gameResult = getGame(gameLine);
+    
+}
+
 export function getGame(gameLine) {
     const id = getGameId(gameLine);
     const games = getGameData(gameLine);

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getGame, getValidGameId } from "../src/GameValidator.js";
+import { getGame, getRequiredNumOfDice, getValidGameId } from "../src/GameValidator.js";
 import { gameOne, gameTwo, gameThree, gameFour, gameFive } from "./testData.js";
 
 describe('getValidGameId()', () => {
@@ -58,5 +58,40 @@ describe('getGame()', () => {
                 ]
             });
         })
+    });
+});
+
+describe('getRequiredNumOfDice()', () => {
+    describe('should return required number of dice to complete the game ', () => {
+        it('Game 1', () => {
+            const input = gameOne, expectedResult = {red: 4, green: 2, blue: 6};
+
+            const result = getRequiredNumOfDice(input);
+            expect(result).to.deep.equal(expectedResult);
+        });
+        it('Game 2', () => {
+            const input = gameTwo, expectedResult = {red: 1, green: 3, blue: 4};
+
+            const result = getRequiredNumOfDice(input);
+            expect(result).to.deep.equal(expectedResult);
+        });
+        it('Game 3', () => {
+            const input = gamethree, expectedResult = {red: 20, green: 13, blue: 6};
+
+            const result = getRequiredNumOfDice(input);
+            expect(result).to.deep.equal(expectedResult);
+        });
+        it('Game 4', () => {
+            const input = gameFour, expectedResult = {red: 14, green: 3, blue: 15};
+
+            const result = getRequiredNumOfDice(input);
+            expect(result).to.deep.equal(expectedResult);
+        });
+        it('Game 5', () => {
+            const input = gameFive, expectedResult = {red: 6, green: 3, blue: 2};
+
+            const result = getRequiredNumOfDice(input);
+            expect(result).to.deep.equal(expectedResult);
+        });
     });
 });
