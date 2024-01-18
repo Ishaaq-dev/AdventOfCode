@@ -1,6 +1,12 @@
 import { DICE_COLOURS } from "./constants.js";
 import { getGameId, getGameData } from "./helpers.js";
 
+export function getPowerOfGame(gameLine) {
+    const requiredNumOfDice = getRequiredNumOfDice(gameLine);
+    const powerOfGame = Object.keys(requiredNumOfDice).reduce((accumulator, colour) => requiredNumOfDice[colour] * accumulator, 1);
+    return powerOfGame; 
+}
+
 export function getValidGameId(gameLine, constraints) {
     const gameResult = getGame(gameLine);
     const gameValidation = gameResult.games.map(game => {
@@ -31,12 +37,6 @@ export function getRequiredNumOfDice(gameLine) {
     });
 
     return requiredNumOfDice;
-}
-
-export function getPowerOfGame(gameLine) {
-    const requiredNumOfDice = getRequiredNumOfDice(gameLine);
-    const powerOfGame = Object.keys(requiredNumOfDice).reduce((accumulator, colour) => requiredNumOfDice[colour] * accumulator, 1);
-    return powerOfGame; 
 }
 
 export function getGame(gameLine) {
