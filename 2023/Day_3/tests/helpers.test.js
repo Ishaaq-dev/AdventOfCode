@@ -173,6 +173,16 @@ describe('findPartNumbers()', () => {
                     const result = findPartNumbers(input, symbolIndexes);
                     expect(result).to.deep.equal(expectedResult);
                 });
+                it('Scenario unique - Diagnol/adjacent - Part number length = 1', () => {
+                    const input = '..6.......', symbolIndexes = [3], expectedResult = [6];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
+                it('Scenario unique - above/below - Part number length = 1', () => {
+                    const input = '..6.......', symbolIndexes = [2], expectedResult = [6];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
             });
         });
 
