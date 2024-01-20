@@ -9,8 +9,8 @@ describe('getSumOfPartnumbers()', () => {
         const result = getSumOfPartNumbers(input);
         expect(result).to.equal(expectedResult);
     });
-    it('should return 739', () => {
-        const input = Scenario.J, expectedResult = 739;
+    it('should return 942', () => {
+        const input = Scenario.J, expectedResult = 942;
         const result = getSumOfPartNumbers(input);
 
         expect(result).to.equal(expectedResult);
