@@ -8,6 +8,28 @@ export function getSymbolIndexes(engineSchematicLine) {
     return symbolIndexes;
 }
 
+export function findPartNumbers(engineSchematicLine, symbolIndexes) {
+    const partNumbers = [];
+
+    symbolIndexes.forEach(symbolIndex => {
+        const before = symbolIndex - 1, after = symbolIndex + 1;
+        if (parseInt(engineSchematicLine[symbolIndex]) && (parseInt(engineSchematicLine[before]) || parseInt(engineSchematicLine[after]))){
+            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
+            if (partNumber) partNumbers.push(partNumber);
+        } else if(!parseInt(engineSchematicLine[symbolIndex])) {
+            const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
+            if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
+            const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
+            if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
+        } else if(parseInt(engineSchematicLine[symbolIndex])) {
+            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
+            if(partNumber) partNumbers.push(partNumber);
+        }
+    });
+
+    return partNumbers;
+}
+
 export function getPartNumberFromIndex(engineSchematicLine, index) {
     let partNumber = '';
 
@@ -30,26 +52,4 @@ export function getPartNumberFromIndex(engineSchematicLine, index) {
     }
 
     return parseInt(partNumber) ?? false;
-}
-
-export function findPartNumbers(engineSchematicLine, symbolIndexes) {
-    const partNumbers = [];
-
-    symbolIndexes.forEach(symbolIndex => {
-        const before = symbolIndex - 1, after = symbolIndex + 1;
-        if (parseInt(engineSchematicLine[symbolIndex]) && (parseInt(engineSchematicLine[before]) || parseInt(engineSchematicLine[after]))){
-            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
-            if (partNumber) partNumbers.push(partNumber);
-        } else if(!parseInt(engineSchematicLine[symbolIndex])) {
-            const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
-            if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
-            const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
-            if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
-        } else if(parseInt(engineSchematicLine[symbolIndex])) {
-            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
-            if(partNumber) partNumbers.push(partNumber);
-        }
-    });
-
-    return partNumbers;
 }
