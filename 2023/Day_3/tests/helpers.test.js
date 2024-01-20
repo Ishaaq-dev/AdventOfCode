@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { findPartNumbers, getPartNumberFromIndex, getSymbolIndexes } from '../src/helpers.js';
+import { findPartNumbers, getPartNumberFromIndex } from '../src/helpers.js';
 import { Scenario } from './testData.js';
 
 describe('getPartNumberFromIndex()', () => {
@@ -48,76 +48,6 @@ describe('getPartNumberFromIndex()', () => {
                 const result = getPartNumberFromIndex(input, index);
 
                 expect(result).to.equal(expectedResult);
-            });
-        });
-    });
-});
-
-describe('getSymbolIndexes()', () => {
-    describe('Should return an array of indexes matching symbols', () => {
-        describe('Positive Matches', () => {
-            it('Scenario Two', () => {
-                const input = Scenario.Two, expectedResult = [3];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Four', () => {
-                const input = Scenario.Four, expectedResult = [6];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Five', () => {
-                const input = Scenario.Five, expectedResult = [3];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Six', () => {
-                const input = Scenario.Six, expectedResult = [5];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Nine', () => {
-                const input = Scenario.Nine, expectedResult = [3, 5];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-        });
-        
-        describe('Negative Matches', () => {
-            it('Scenario One', () => {
-                const input = Scenario.One, expectedResult = [];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Three', () => {
-                const input = Scenario.Three, expectedResult = [];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Seven', () => {
-                const input = Scenario.Seven, expectedResult = [];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Eight', () => {
-                const input = Scenario.Eight, expectedResult = [];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
-            });
-            it('Scenario Ten', () => {
-                const input = Scenario.Ten, expectedResult = [];
-                const result = getSymbolIndexes(input);
-    
-                expect(result).to.deep.equal(expectedResult);
             });
         });
     });
