@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "day_3",
+  "version": "1.0.0",
+  "description": "--- Day 3: Gear Ratios --- You and the Elf eventually reach a gondola lift station; he says the gondola lift will take you up to the water source, but this is as far as he can bring you. You go inside.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "mocha ./tests/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.0.0",
+    "mocha": "^10.2.0"
+  }
+}
