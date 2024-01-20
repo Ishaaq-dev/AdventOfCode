@@ -152,9 +152,27 @@ describe('findPartNumbers()', () => {
                 expect(result).to.deep.equal(expectedResult);
             });
             it('Scenario Ten', () => {
-                const input = Scenario.Ten, symbolIndexes = [3,5], expectedResult = [644,598];
+                const input = Scenario.Ten, symbolIndexes = [3,5], expectedResult = [664,598];
                 const result = findPartNumbers(input, symbolIndexes);
                 expect(result).to.deep.equal(expectedResult);
+            });
+
+            describe('Extreme Conditions', () => {
+                it('Scenario Ten - symbol match is above and between two part numbers', () => {
+                    const input = Scenario.Ten, symbolIndexes = [4], expectedResult = [664, 598];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
+                it('Scenario Ten - symbol match is between two part numbers', () => {
+                    const input = '.664&598..', symbolIndexes = [4], expectedResult = [664, 598];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
+                it('Scenario Ten - symbol match is above long part number', () => {
+                    const input = '.6645598..', symbolIndexes = [4], expectedResult = [6645598];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
             });
         });
 
