@@ -3,27 +3,37 @@ export function findPartNumbers(engineSchematicLine, symbolIndexes) {
 
     symbolIndexes.forEach(symbolIndex => {
         const before = symbolIndex - 1, after = symbolIndex + 1;
-        if (parseInt(engineSchematicLine[symbolIndex]) && (parseInt(engineSchematicLine[before]) || parseInt(engineSchematicLine[after]))){
+        if (checkValueIsInt(engineSchematicLine[symbolIndex]) && (checkValueIsInt(engineSchematicLine[before]) || checkValueIsInt(engineSchematicLine[after]))){
             const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
             if (partNumber) partNumbers.push(partNumber);
-        } else if(!parseInt(engineSchematicLine[symbolIndex])) {
+        } else if(!checkValueIsInt(engineSchematicLine[symbolIndex])) {
             const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
             if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
             const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
             if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
-        } else if(parseInt(engineSchematicLine[symbolIndex])) {
+        } else if(checkValueIsInt(engineSchematicLine[symbolIndex])) {
             const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
             if(partNumber) partNumbers.push(partNumber);
         }
     });
 
+    console.log('findPartNmbers: ', partNumbers);
     return partNumbers;
+}
+
+export function checkValueIsInt(value) {
+    console.log('parse: ', typeof parseInt(value));
+    const numericRegEx = /[0-9]/;
+    if (value.match(numericRegEx))
+        return true;
+    else
+    return false;
 }
 
 export function getPartNumberFromIndex(engineSchematicLine, index) {
     let partNumber = '';
 
-    if (!parseInt(engineSchematicLine[index]))
+    if (!checkValueIsInt(engineSchematicLine[index]))
         return false;
 
     partNumber = engineSchematicLine[index];

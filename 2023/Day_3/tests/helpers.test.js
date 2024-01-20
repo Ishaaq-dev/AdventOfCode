@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { findPartNumbers, getPartNumberFromIndex } from '../src/helpers.js';
+import { checkValueIsInt, findPartNumbers, getPartNumberFromIndex } from '../src/helpers.js';
 import { Scenario } from './testData.js';
 
 describe('getPartNumberFromIndex()', () => {
@@ -82,7 +82,13 @@ describe('findPartNumbers()', () => {
                 expect(result).to.deep.equal(expectedResult);
             });
             it('Scenario Ten', () => {
-                const input = Scenario.Ten, symbolIndexes = [3,5], expectedResult = [664,598];
+                const input = Scenario.Ten, symbolIndexes = [3, 5], expectedResult = [664, 598];
+                const result = findPartNumbers(input, symbolIndexes);
+                expect(result).to.deep.equal(expectedResult);
+            });
+
+            it('J', () => {
+                const input = '100.101...', symbolIndexes = [3], expectedResult = [100,101];
                 const result = findPartNumbers(input, symbolIndexes);
                 expect(result).to.deep.equal(expectedResult);
             });
@@ -133,9 +139,28 @@ describe('findPartNumbers()', () => {
                 expect(result).to.deep.equal(expectedResult);
             });
             it('Scenario Nine', () => {
-                const input = Scenario.Nine, symbolIndexes = [3,5], expectedResult = [];
+                const input = Scenario.Nine, symbolIndexes = [3, 5], expectedResult = [];
                 const result = findPartNumbers(input, symbolIndexes);
                 expect(result).to.deep.equal(expectedResult);
+            });
+        });
+    });
+});
+
+describe('checkValueIsInt()', () => {
+    describe('return truthy given value is an int 0-9', () => {
+        describe('Positive Matches', () => {
+            it('0', () => {
+                const input = '0', expectedResult = true;
+                const result = checkValueIsInt(input);
+                expect(result).to.equal(expectedResult);
+            });
+        });
+        describe("Negative Matches", () => {
+            it('.', () => {
+                const input = '.', expectedResult = false;
+                const result = checkValueIsInt(input);
+                expect(result).to.equal(expectedResult);
             });
         });
     });

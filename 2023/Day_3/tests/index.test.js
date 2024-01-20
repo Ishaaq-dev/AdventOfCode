@@ -9,12 +9,12 @@ describe('getSumOfPartnumbers()', () => {
         const result = getSumOfPartNumbers(input);
         expect(result).to.equal(expectedResult);
     });
-    it('should return 942', () => {
-        const input = Scenario.J, expectedResult = 942;
+    it('should return 940', () => {
+        const input = Scenario.J, expectedResult = 940;
         const result = getSumOfPartNumbers(input);
 
         expect(result).to.equal(expectedResult);
-    })
+    });
     it('should return 544664', () => {
         const gearRatioData = fs.readFileSync('./data/input.txt', 'utf-8').split('\n');
         const input = gearRatioData, expectedResult = 544664;

@@ -14,7 +14,7 @@ export function getSumOfPartNumbers(data) {
         for (j; j <= limit; j++ ) {
             const value = data[j];
             const symbolIndexes = getSymbolIndexes(value);
-            if (!symbolIndexes) break;
+            if (!symbolIndexes.length) continue;
             const partNumbersSum = getSumOfEngineSchematic(data[i], symbolIndexes);
             if (partNumbersSum) partNumberSums.push(partNumbersSum);
         }
@@ -22,4 +22,4 @@ export function getSumOfPartNumbers(data) {
     return partNumberSums.reduce((acc, cur) => acc += cur, 0);
 }
 
-console.log('Sum of part numbers', getSumOfPartNumbers(gearRatioData));
+// console.log('Sum of part numbers', getSumOfPartNumbers(gearRatioData));
