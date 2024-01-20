@@ -8,6 +8,18 @@ const Seven  = '..592.....';
 const Eight  = '......755.';
 const Nine   = '...$.*....';
 const Ten    = '.664.598..';
+const full   = [
+    One,
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+    Ten
+]
 
 export const Scenario = {
     One,
@@ -19,5 +31,6 @@ export const Scenario = {
     Seven,
     Eight,
     Nine,
-    Ten
+    Ten,
+    full
 }

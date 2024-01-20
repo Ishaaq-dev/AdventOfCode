@@ -8,7 +8,16 @@ export function getPartNumbersFromEngineSchematic(engineSchematicLine, indexes) 
     return partNumbers;
 }
 
+export function getSumOfEngineSchematic(engineSchematicLine, indexes) {
+    const partNumbers = getPartNumbersFromEngineSchematic(engineSchematicLine, indexes);
+    if (!partNumbers) return false;
+
+    const sum = partNumbers.reduce((acc, curr) => acc += curr, 0);
+    return sum;
+}
+
 export function getSymbolIndexes(engineSchematicLine) {
+    if (!engineSchematicLine) return false;
     const symbolRegEx = /[^\d\.\n]/g
     const symbolIndexes = [];
     let match;
@@ -16,4 +25,4 @@ export function getSymbolIndexes(engineSchematicLine) {
         symbolIndexes.push(match.index);
     }
     return symbolIndexes;
-}
+} 
