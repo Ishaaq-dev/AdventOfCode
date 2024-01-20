@@ -20,6 +20,18 @@ const full   = [
     Nine,
     Ten
 ]
+const J     = [
+    '100.101...',
+    '...*......',
+    '..102.103.',
+    '......#...',
+    '104*......',
+    '.....+.105',
+    '..106.....',
+    '......107.',
+    '...$.*....',
+    '.108.109..'
+];
 
 export const Scenario = {
     One,
@@ -32,5 +44,6 @@ export const Scenario = {
     Eight,
     Nine,
     Ten,
-    full
+    full,
+    J
 }
