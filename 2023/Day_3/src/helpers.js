@@ -1,10 +1,19 @@
+export function getSymbolIndexes(engineSchematicLine) {
+    const symbolRegEx = /[^\d\.\n]/g
+    const symbolIndexes = [];
+    let match;
+    while ((match = symbolRegEx.exec(engineSchematicLine)) !== null) {
+        symbolIndexes.push(match.index);
+    }
+    return symbolIndexes;
+}
+
 export function getPartNumber(engineSchematicLine, index) {
     let partNumber = '';
 
-    if (!parseInt(engineSchematicLine[index])) {
-        console.warn(`Supplied Index: ${index} does not match a number`);
+    if (!parseInt(engineSchematicLine[index]))
         return false;
-    }
+
     partNumber = engineSchematicLine[index];
     
     const nonNumericRegEx = /\D/;
