@@ -8,7 +8,7 @@ export function getSymbolIndexes(engineSchematicLine) {
     return symbolIndexes;
 }
 
-export function getPartNumber(engineSchematicLine, index) {
+export function getPartNumberFromIndex(engineSchematicLine, index) {
     let partNumber = '';
 
     if (!parseInt(engineSchematicLine[index]))
@@ -29,5 +29,28 @@ export function getPartNumber(engineSchematicLine, index) {
         partNumber = `${partNumber}${value}`;
     }
 
-    return parseInt(partNumber);
+    return parseInt(partNumber) ?? false;
+}
+
+export function findPartNumbers(engineSchematicLine, symbolIndexes) {
+    const partNumbers = [];
+
+    symbolIndexes.forEach(symbolIndex => {
+        const before = symbolIndex - 1, after = symbolIndex + 1;
+        // if(parseInt(engineSchematicLine[before]) && parseInt(engineSchematicLine[symbolIndex]) && parseInt(engineSchematicLine[after])) {
+        //     const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
+        //     partNumbers.push(partNumber);
+        // } 
+        if (parseInt(engineSchematicLine[symbolIndex]) && (parseInt(engineSchematicLine[before]) || parseInt(engineSchematicLine[after]))){
+            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
+            partNumbers.push(partNumber);
+        } else if(!parseInt(engineSchematicLine[symbolIndex])) {
+            const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
+            if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
+            const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
+            if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
+        }
+    });
+
+    return partNumbers;
 }
