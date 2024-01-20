@@ -37,10 +37,6 @@ export function findPartNumbers(engineSchematicLine, symbolIndexes) {
 
     symbolIndexes.forEach(symbolIndex => {
         const before = symbolIndex - 1, after = symbolIndex + 1;
-        // if(parseInt(engineSchematicLine[before]) && parseInt(engineSchematicLine[symbolIndex]) && parseInt(engineSchematicLine[after])) {
-        //     const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
-        //     partNumbers.push(partNumber);
-        // } 
         if (parseInt(engineSchematicLine[symbolIndex]) && (parseInt(engineSchematicLine[before]) || parseInt(engineSchematicLine[after]))){
             const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
             partNumbers.push(partNumber);
