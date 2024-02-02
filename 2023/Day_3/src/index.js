@@ -22,4 +22,4 @@ export function getSumOfPartNumbers(data) {
     return partNumberSums.reduce((acc, cur) => acc += cur, 0);
 }
 
-// console.log('Sum of part numbers', getSumOfPartNumbers(gearRatioData));
+console.log('Sum of part numbers', getSumOfPartNumbers(gearRatioData));

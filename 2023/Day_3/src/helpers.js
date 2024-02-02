@@ -17,12 +17,10 @@ export function findPartNumbers(engineSchematicLine, symbolIndexes) {
         }
     });
 
-    console.log('findPartNmbers: ', partNumbers);
     return partNumbers;
 }
 
 export function checkValueIsInt(value) {
-    console.log('parse: ', typeof parseInt(value));
     const numericRegEx = /[0-9]/;
     if (value.match(numericRegEx))
         return true;
