@@ -22,4 +22,9 @@ describe('getSumOfPartnumbers()', () => {
         expect(expectedResult - result).to.equal(0);
         expect(result).to.equal(expectedResult);
     });
+    it('Part II - should return 467835', () => {
+        const input = Scenario.full, expectedResult = 467835;
+        const result = getSumOfPartNumbers(input);
+        expect(result).to.equal(expectedResult); 
+    });
 });
