@@ -1,5 +1,10 @@
 import { findPartNumbers } from "./helpers.js";
 
+const SYMBOL_REGEX = {
+    ALL_SYMBOLS: /[^\d\.\n]/g,
+    ASTERIX: /\*/g
+}
+
 export function getPartNumbersFromEngineSchematic(engineSchematicLine, indexes) {
     if (!engineSchematicLine) return false;
     const symbolIndexes = indexes ?? getSymbolIndexes(engineSchematicLine);
@@ -17,12 +22,21 @@ export function getSumOfEngineSchematic(engineSchematicLine, indexes) {
 }
 
 export function getSymbolIndexes(engineSchematicLine) {
+    const symbolIndexes = getIndexes(engineSchematicLine, SYMBOL_REGEX.ALL_SYMBOLS);
+    return symbolIndexes;
+}
+
+export function getAsterixIndexes(engineSchematicLine) {
+    const symbolIndexes = getIndexes(engineSchematicLine, SYMBOL_REGEX.ASTERIX);
+    return symbolIndexes;
+}
+
+function getIndexes(engineSchematicLine, regex) {
     if (!engineSchematicLine) return false;
-    const symbolRegEx = /[^\d\.\n]/g
     const symbolIndexes = [];
     let match;
-    while ((match = symbolRegEx.exec(engineSchematicLine)) !== null) {
+    while ((match = regex.exec(engineSchematicLine)) !== null) {
         symbolIndexes.push(match.index);
     }
     return symbolIndexes;
-} 
+}
