@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Scenario } from './testData.js';
-import { getAsterixIndexes, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
+import { getAsterixIndexObj, getAsterixIndexes, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
 import { getSymbolIndexes } from '../src/GearRatios.js';
 
 describe('getPartNumbersFromEngineSchematic()', () => {
@@ -141,6 +141,25 @@ describe('getAsterixIndexes()', () => {
             it('Scenario 1', () => {
                 const input = Scenario.One, expectedResult = [];
                 const result = getAsterixIndexes(input);
+                expect(result).to.deep.equal(expectedResult);
+            });
+        });
+    });
+});
+
+describe('getAsterixIndexObj()', () => {
+    describe('should return an object with index as key and an empty array as the value', () => {
+        describe('positive matches', () => {
+            it('Scenario Two', () => {
+                const input = Scenario.Two, expectedResult = {3: []};
+
+                const result = getAsterixIndexObj(input);
+                expect(result).to.deep.equal(expectedResult);
+            });
+            it('Scenario multiple asterixes', () => {
+                const input = Scenario.multipleAsterixes, expectedResult = {3: [], 5: [], 8: []};
+
+                const result = getAsterixIndexObj(input);
                 expect(result).to.deep.equal(expectedResult);
             });
         });

@@ -8,6 +8,7 @@ const Seven  = '..592.....';
 const Eight  = '......755.';
 const Nine   = '...$.*....';
 const Ten    = '.664.598..';
+const multipleAsterixes = '...*.*..*.';
 const full   = [
     One,
     Two,
@@ -44,6 +45,7 @@ export const Scenario = {
     Eight,
     Nine,
     Ten,
+    multipleAsterixes,
     full,
     J
 }
