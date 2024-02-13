@@ -26,7 +26,6 @@ export function getSumOfPartNumbers(data) {
         if (multipliedGearRatios > 0)
             gearNumberSums.push(multipliedGearRatios);
     }
-    console.log('gearNumberSums: ', gearNumberSums);
     return {
         partNum: partNumberSums.reduce((acc, cur) => acc += cur, 0), 
         gearNum: gearNumberSums.reduce((acc, cur) => acc += cur, 0)
