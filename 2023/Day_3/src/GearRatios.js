@@ -14,6 +14,18 @@ export function getPartNumbersFromEngineSchematic(engineSchematicLine, indexes) 
     return partNumbers;
 }
 
+export function getMultipliedGearRatios(asterixIndexObj) {
+    let result = 0;
+    const indexes = Object.keys(asterixIndexObj);
+    indexes.forEach(index => {
+        const gearNums = asterixIndexObj[index];
+        if(gearNums.length === 2) {
+            result = gearNums[0] * gearNums[1];
+        }
+    });
+    return result;
+}
+
 export function getGearsFromEngineSchematic(engineSchematicLine, asterixIndexObj) {
     const indexes = Object.keys(asterixIndexObj);
     indexes.forEach(index => {

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Scenario } from './testData.js';
-import { getAsterixIndexObj, getAsterixIndexes, getGearsFromEngineSchematic, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
+import { getAsterixIndexObj, getAsterixIndexes, getGearsFromEngineSchematic, getMultipliedGearRatios, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
 import { getSymbolIndexes } from '../src/GearRatios.js';
 
 describe('getPartNumbersFromEngineSchematic()', () => {
@@ -174,6 +174,26 @@ describe('getGearsFromEngineSchematic()', () => {
                 const result = getGearsFromEngineSchematic(input, AsterixIndexObj);
                 expect(result).to.deep.equal(expectedResult);
             });
+        });
+    });
+});
+
+describe('getMultipliedGearRatios()', () => {
+    describe('returns a sum of all adjancent asterix values mulptiplied', () => {
+        it('Scenario One', () => {
+            const input = { '3': [ 467, 35 ] }, expectedResult = 16345;
+            const result = getMultipliedGearRatios(input);
+            expect(result).to.equal(expectedResult);
+        });
+        it('Scenario Five', () => {
+            const input = { '3': [ 617 ] }, expectedResult = 0;
+            const result = getMultipliedGearRatios(input);
+            expect(result).to.equal(expectedResult);
+        });
+        it('Scenario Nine', () => {
+            const input = { '5': [ 755, 598 ] }, expectedResult = 451490;
+            const result = getMultipliedGearRatios(input);
+            expect(result).to.equal(expectedResult);
         });
     });
 });
