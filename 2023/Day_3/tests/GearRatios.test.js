@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Scenario } from './testData.js';
-import { getAsterixIndexObj, getAsterixIndexes, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
+import { getAsterixIndexObj, getAsterixIndexes, getGearsFromEngineSchematic, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
 import { getSymbolIndexes } from '../src/GearRatios.js';
 
 describe('getPartNumbersFromEngineSchematic()', () => {
@@ -160,6 +160,18 @@ describe('getAsterixIndexObj()', () => {
                 const input = Scenario.multipleAsterixes, expectedResult = {3: [], 5: [], 8: []};
 
                 const result = getAsterixIndexObj(input);
+                expect(result).to.deep.equal(expectedResult);
+            });
+        });
+    });
+});
+
+describe('getGearsFromEngineSchematic()', () => {
+    describe('should return all gears linked to all asterix indexes passed', () => {
+        describe('postive matches', () => {
+            it('Scenario One ', () => {
+                const input = Scenario.One, AsterixIndexObj = {3:[]}, expectedResult = {3:[467]};
+                const result = getGearsFromEngineSchematic(input, AsterixIndexObj);
                 expect(result).to.deep.equal(expectedResult);
             });
         });

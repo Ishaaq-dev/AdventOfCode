@@ -1,4 +1,4 @@
-import { findPartNumbers } from "./helpers.js";
+import { findPartNumber, findPartNumbers } from "./helpers.js";
 
 const SYMBOL_REGEX = {
     ALL_SYMBOLS: /[^\d\.\n]/g,
@@ -12,6 +12,15 @@ export function getPartNumbersFromEngineSchematic(engineSchematicLine, indexes) 
     const partNumbers = findPartNumbers(engineSchematicLine, symbolIndexes);
 
     return partNumbers;
+}
+
+export function getGearsFromEngineSchematic(engineSchematicLine, asterixIndexObj) {
+    const indexes = Object.keys(asterixIndexObj);
+    indexes.forEach(index => {
+        const partNums = findPartNumber(engineSchematicLine, index);
+        asterixIndexObj[index] = asterixIndexObj[index].concat(partNums);
+    });
+    return asterixIndexObj;
 }
 
 export function getSumOfEngineSchematic(engineSchematicLine, indexes) {
