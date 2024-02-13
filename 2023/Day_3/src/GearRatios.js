@@ -20,7 +20,7 @@ export function getMultipliedGearRatios(asterixIndexObj) {
     indexes.forEach(index => {
         const gearNums = asterixIndexObj[index];
         if(gearNums.length === 2) {
-            result = gearNums[0] * gearNums[1];
+            result += gearNums[0] * gearNums[1];
         }
     });
     return result;
