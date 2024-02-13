@@ -2,6 +2,7 @@ import { findPartNumbers } from "./helpers.js";
 
 const SYMBOL_REGEX = {
     ALL_SYMBOLS: /[^\d\.\n]/g,
+    ALL_BUT_ASTERIX: /[^\d\.\n\*]/g,
     ASTERIX: /\*/g
 }
 
@@ -27,8 +28,17 @@ export function getSymbolIndexes(engineSchematicLine) {
 }
 
 export function getAsterixIndexes(engineSchematicLine) {
-    const symbolIndexes = getIndexes(engineSchematicLine, SYMBOL_REGEX.ASTERIX);
-    return symbolIndexes;
+    const asterixIndexes = getIndexes(engineSchematicLine, SYMBOL_REGEX.ASTERIX);
+    return asterixIndexes;
+}
+
+export function getAsterixIndexObj(engineSchematicLine) {
+    const asterixIndexObject = {};
+    const asterixIndexes = getAsterixIndexes(engineSchematicLine);
+    asterixIndexes.forEach(asterixIndex => {
+        asterixIndexObject[asterixIndex] = [];
+    });
+    return asterixIndexObject;
 }
 
 function getIndexes(engineSchematicLine, regex) {

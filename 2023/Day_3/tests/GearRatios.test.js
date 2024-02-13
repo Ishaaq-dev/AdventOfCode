@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Scenario } from './testData.js';
-import { getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
+import { getAsterixIndexes, getPartNumbersFromEngineSchematic } from '../src/GearRatios.js';
 import { getSymbolIndexes } from '../src/GearRatios.js';
 
 describe('getPartNumbersFromEngineSchematic()', () => {
@@ -122,6 +122,25 @@ describe('getSymbolIndexes()', () => {
                 const input = Scenario.Ten, expectedResult = [];
                 const result = getSymbolIndexes(input);
     
+                expect(result).to.deep.equal(expectedResult);
+            });
+        });
+    });
+});
+
+describe('getAsterixIndexes()', () => {
+    describe('should return an array of indexes matching all asterixs in a line', () => {
+        describe('Positive Matches', () => {
+            it('Scenario 2', () => {
+                const input = Scenario.Two, expectedResult = [3];
+                const result = getAsterixIndexes(input);
+                expect(result).to.deep.equal(expectedResult);
+            });
+        });
+        describe('Negative Matches', () => {
+            it('Scenario 1', () => {
+                const input = Scenario.One, expectedResult = [];
+                const result = getAsterixIndexes(input);
                 expect(result).to.deep.equal(expectedResult);
             });
         });
