@@ -1,21 +1,31 @@
 export function findPartNumbers(engineSchematicLine, symbolIndexes) {
-    const partNumbers = [];
+    let partNumbers = [];
 
     symbolIndexes.forEach(symbolIndex => {
-        const before = symbolIndex - 1, after = symbolIndex + 1;
-        if (checkValueIsInt(engineSchematicLine[symbolIndex]) && (checkValueIsInt(engineSchematicLine[before]) || checkValueIsInt(engineSchematicLine[after]))){
-            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
-            if (partNumber) partNumbers.push(partNumber);
-        } else if(!checkValueIsInt(engineSchematicLine[symbolIndex])) {
-            const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
-            if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
-            const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
-            if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
-        } else if(checkValueIsInt(engineSchematicLine[symbolIndex])) {
-            const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndex);
-            if(partNumber) partNumbers.push(partNumber);
-        }
+        const partNums = findPartNumber(engineSchematicLine, symbolIndex);
+        if (partNums) partNumbers = partNumbers.concat(partNums);
     });
+
+    return partNumbers;
+}
+
+export function findPartNumber(engineSchematicLine, symbolIndex) {
+    const partNumbers = [];
+    const symbolIndexInt = parseInt(symbolIndex);
+
+    const before = symbolIndexInt > 0 ? symbolIndexInt - 1 : 0, after = symbolIndexInt + 1;
+    if (checkValueIsInt(engineSchematicLine[symbolIndexInt]) && (checkValueIsInt(engineSchematicLine[before]) || checkValueIsInt(engineSchematicLine[after]))){
+        const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndexInt);
+        if (partNumber) partNumbers.push(partNumber);
+    } else if(!checkValueIsInt(engineSchematicLine[symbolIndexInt])) {
+        const leftHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, before);
+        if (leftHandSidePartNumber) partNumbers.push(leftHandSidePartNumber);
+        const rightHandSidePartNumber = getPartNumberFromIndex(engineSchematicLine, after);
+        if(rightHandSidePartNumber) partNumbers.push(rightHandSidePartNumber);
+    } else if(checkValueIsInt(engineSchematicLine[symbolIndexInt])) {
+        const partNumber = getPartNumberFromIndex(engineSchematicLine, symbolIndexInt);
+        if(partNumber) partNumbers.push(partNumber);
+    }
 
     return partNumbers;
 }

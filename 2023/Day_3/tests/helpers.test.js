@@ -119,6 +119,11 @@ describe('findPartNumbers()', () => {
                     const result = findPartNumbers(input, symbolIndexes);
                     expect(result).to.deep.equal(expectedResult);
                 });
+                it('Scenario unique - index = 0', () => {
+                    const input = '6........9', symbolIndexes = [0], expectedResult = [6];
+                    const result = findPartNumbers(input, symbolIndexes);
+                    expect(result).to.deep.equal(expectedResult);
+                });
             });
         });
 
