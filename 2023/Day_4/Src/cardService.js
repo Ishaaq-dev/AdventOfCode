@@ -1,9 +1,9 @@
-import { getQuantityOfWinningNums, getCardDetails } from "./helpers.js";
+import { getCardDetails } from "./helpers.js";
 
 export function getTotalPointsFromCard(card) {
-    const numbers = getCardDetails(card);
+    const cardDetails = getCardDetails(card);
 
-    const quantityOfWinningNums = getQuantityOfWinningNums(numbers.winningNums, numbers.playingNums);
+    const quantityOfWinningNums = cardDetails.quantityOfWinningNums;
 
     if (quantityOfWinningNums <= 1) return quantityOfWinningNums;
     let totalPoints = 1;

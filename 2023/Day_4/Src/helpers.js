@@ -7,7 +7,9 @@ export function getCardDetails(card) {
     const winningNums = convertStringNumbersToIntArray(numbersSplit[0]);
     const playingNums = convertStringNumbersToIntArray(numbersSplit[1]);
 
-    return { cardNumber, winningNums, playingNums }
+    const quantityOfWinningNums = getQuantityOfWinningNums(winningNums, playingNums);
+
+    return { cardNumber, winningNums, playingNums, quantityOfWinningNums }
 }
 
 export function convertStringNumbersToIntArray(stringNumbers) {
