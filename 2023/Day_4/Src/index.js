@@ -12,3 +12,15 @@ export function getSumOfAllCards(data) {
 
     return sumOfAllCards;
 }
+
+export function getTotalNumberOfCards(data) {
+    let totalCards = {};
+
+    for (let i=0; i<data.length;i++) {
+        totalCards = getNumberOfWinningCards(data, totalCards);
+    }
+
+    const totalNumber = getTotalNumberOfCards(totalCards);
+
+    return totalNumber;
+}
