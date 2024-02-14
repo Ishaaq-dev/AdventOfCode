@@ -18,3 +18,11 @@ export function convertStringNumbersToIntArray(stringNumbers) {
 
     return intNumbersArray;
 }
+
+export function getQuantityOfWinningNums(winningNumsArray, playingNumsArray) {
+    let quantityOfWinningNums = 0;
+    winningNumsArray.forEach(winningNum => {
+        if(playingNumsArray.includes(winningNum)) quantityOfWinningNums++;
+    });
+    return quantityOfWinningNums;
+}
