@@ -7,7 +7,7 @@ describe('getSumOfAllCards()', () => {
         it('should return 13', () => {
             const input = Cards.All, expectedResult = 13;
             const result = getSumOfAllCards(input);
-            expectedResult(result).to.equal(expectedResult);
+            expect(result).to.equal(expectedResult);
         });
     });
 });
