@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { getTotalPointsFromCard } from './cardService.js';
 
 const CardData = fs.readFileSync('./Data/input.txt', 'utf-8').split('\n');
 

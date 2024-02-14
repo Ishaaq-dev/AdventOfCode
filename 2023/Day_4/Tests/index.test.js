@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { getSumOfAllCards } from "../Src/index.js";
-import { Cards } from "./TestData.js";
+import { Cards } from "./testData.js";
 
 describe('getSumOfAllCards()', () => {
     describe('Part I', () => {
