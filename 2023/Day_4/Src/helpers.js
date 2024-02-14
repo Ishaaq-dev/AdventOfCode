@@ -1,11 +1,13 @@
 export function getCardDetails(card) {
     const cardSplit = card.split(':');
+    const cardDetailSplit = cardSplit[0].split(' ');
     const numbersSplit = cardSplit[1].split('|');
 
+    const cardNumber = parseInt(cardDetailSplit[1].trim());
     const winningNums = convertStringNumbersToIntArray(numbersSplit[0]);
     const playingNums = convertStringNumbersToIntArray(numbersSplit[1]);
 
-    return { winningNums, playingNums }
+    return { cardNumber, winningNums, playingNums }
 }
 
 export function convertStringNumbersToIntArray(stringNumbers) {

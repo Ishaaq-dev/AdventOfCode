@@ -5,6 +5,7 @@ import { Cards } from "./testData.js";
 describe('getCardDetails()', () => {
     it('card One', () => {
         const input = Cards.One, expectedResult = {
+            cardNumber: 1,
             winningNums: [41,48,83,86,17],
             playingNums: [83,86,6,31,17,9,48,53]
         };
@@ -13,6 +14,7 @@ describe('getCardDetails()', () => {
     });
     it('card Two', () => {
         const input = Cards.Two, expectedResult = {
+            cardNumber: 2,
             winningNums: [13,32,20,16,61],
             playingNums: [61,30,68,82,17,32,24,19]
         };
@@ -21,6 +23,7 @@ describe('getCardDetails()', () => {
     });
     it('card Three', () => {
         const input = Cards.Three, expectedResult = {
+            cardNumber: 3,
             winningNums: [1,21,53,59,44],
             playingNums: [69,82,63,72,16,21,14,1]
         };
@@ -29,6 +32,7 @@ describe('getCardDetails()', () => {
     });
     it('card Four', () => {
         const input = Cards.Four, expectedResult = {
+            cardNumber: 4,
             winningNums: [41,92,73,84,69],
             playingNums: [59,84,76,51,58,5,54,83]
         };
@@ -37,6 +41,7 @@ describe('getCardDetails()', () => {
     });
     it('card Five', () => {
         const input = Cards.Five, expectedResult = {
+            cardNumber: 5,
             winningNums: [87,83,26,28,32],
             playingNums: [88,30,70,12,93,22,82,36]
         };
@@ -45,6 +50,7 @@ describe('getCardDetails()', () => {
     });
     it('card Six', () => {
         const input = Cards.Six, expectedResult = {
+            cardNumber: 6,
             winningNums: [31,18,13,56,72],
             playingNums: [74,77,10,23,35,67,36,11]
         };
