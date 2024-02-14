@@ -1,4 +1,4 @@
-export function getWinningAndPlayingNums(card) {
+export function getCardDetails(card) {
     const cardSplit = card.split(':');
     const numbersSplit = cardSplit[1].split('|');
 
