@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "day_4",
+  "version": "1.0.0",
+  "description": "--- Day 4: Scratchcards --- The gondola takes you up. Strangely, though, the ground doesn't seem to be coming with you; you're not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./Src/index.js",
+    "test": "mocha ./Tests/**/*.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0"
+  }
+}
