@@ -1,0 +1,17 @@
+{
+  "name": "day_5",
+  "version": "1.0.0",
+  "description": "--- Day 5: If You Give A Seed A Fertilizer --- You take the boat and find the gardener right where you were told he would be: managing a giant \"garden\" that looks more to you like a farm.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0"
+  }
+}
