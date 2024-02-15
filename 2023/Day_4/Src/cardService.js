@@ -37,5 +37,11 @@ export function getNumberOfWinningCards(card, totalCardsObj) {
 }
 
 export function getSumOfCards(totalCardsObj) {
-
+    let sum = 0;
+    const keys = Object.keys(totalCardsObj);
+    keys.forEach(key => {
+        sum += totalCardsObj[key].original;
+        sum += totalCardsObj[key].copies;
+    });
+    return sum;
 }
