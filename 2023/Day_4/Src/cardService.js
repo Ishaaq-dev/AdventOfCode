@@ -15,9 +15,27 @@ export function getTotalPointsFromCard(card) {
 }
 
 export function getNumberOfWinningCards(card, totalCardsObj) {
+    const cardDetails = getCardDetails(card);
+    const cardNumber = cardDetails.cardNumber;
+    const quantityOfWinningNums = cardDetails.quantityOfWinningNums;
 
+    if(!totalCardsObj[cardNumber]) totalCardsObj[cardNumber] = {original:1, copies:0};
+    else totalCardsObj[cardNumber].original++;
+
+    const numberOfCards = totalCardsObj[cardNumber].original + totalCardsObj[cardNumber].copies;
+
+    for (let j = 0; j < numberOfCards; j++) {
+        for (let i=cardNumber+1; i <= cardNumber + quantityOfWinningNums; i++) {
+            if(totalCardsObj[i])
+                totalCardsObj[i].copies++;
+            else 
+                totalCardsObj[i] = {original:0, copies:1};
+        }
+    }
+
+    return totalCardsObj;
 }
 
 export function getSumOfCards(totalCardsObj) {
-    
+
 }
