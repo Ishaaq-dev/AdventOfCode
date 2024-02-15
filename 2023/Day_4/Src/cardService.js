@@ -13,3 +13,11 @@ export function getTotalPointsFromCard(card) {
 
     return totalPoints;
 }
+
+export function getNumberOfWinningCards(card, totalCardsObj) {
+
+}
+
+export function getSumOfCards(totalCardsObj) {
+    
+}

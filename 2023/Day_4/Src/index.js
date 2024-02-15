@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { getTotalPointsFromCard } from './cardService.js';
+import { getTotalPointsFromCard, getNumberOfWinningCards, getSumOfCards } from './cardService.js';
 
 const CardData = fs.readFileSync('./Data/input.txt', 'utf-8').split('\n');
 
@@ -20,7 +20,7 @@ export function getTotalNumberOfCards(data) {
         totalCards = getNumberOfWinningCards(data, totalCards);
     }
 
-    const totalNumber = getTotalNumberOfCards(totalCards);
+    const totalNumber = getSumOfCards(totalCards);
 
     return totalNumber;
 }
