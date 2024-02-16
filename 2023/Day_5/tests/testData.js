@@ -1,4 +1,4 @@
-import { Maps } from '../src/constants.js';
+import { Maps } from '../src/almanacReader/constants.js';
 const Seeds = 'seeds: 79 14 55 13';
 
 const SeedToSoilMaps = [
@@ -42,7 +42,7 @@ const HumdityToLocationMaps = [
 
 const NewLine = '';
 
-const TestAlmanac = [
+const Almanac = [
     Seeds,
     NewLine,
     Maps.SeedToSoil,
@@ -77,5 +77,5 @@ export const TestData = {
     LightToTempMaps,
     TempToHumidityMaps,
     HumdityToLocationMaps,
-    TestAlmanac
+    Almanac
 }
