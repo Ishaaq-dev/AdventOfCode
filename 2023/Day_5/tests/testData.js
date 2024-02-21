@@ -64,7 +64,7 @@ const Almanac = [
     Maps.TempToHumidity,
     ...TempToHumidityMaps,
     NewLine,
-    Maps.HumdityToLocation,
+    Maps.HumidityToLocation,
     ...HumdityToLocationMaps,
     NewLine,
 ]

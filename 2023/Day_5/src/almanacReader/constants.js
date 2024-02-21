@@ -6,7 +6,7 @@ const Maps = {
     WaterToLight: 'water-to-light map:',
     LightToTemp: 'light-to-temperature map:',
     TempToHumidity: 'temperature-to-humidity map:',
-    HumdityToLocation: 'humidity-to-location map:'
+    HumidityToLocation: 'humidity-to-location map:'
 }
 
 const MapTitles = {
@@ -16,7 +16,7 @@ const MapTitles = {
     WaterToLight: 'waterToLight',
     LightToTemp: 'lightToTemp',
     TempToHumidity: 'tempToHumidity',
-    HumdityToLocation: 'humdityToLocation'
+    HumidityToLocation: 'humidityToLocation'
 }
 
 export const Constants = {
