@@ -1,4 +1,5 @@
-import { Maps } from '../src/almanacReader/constants.js';
+import { Constants } from '../src/almanacReader/constants.js';
+const Maps = Constants.Maps;
 const Seeds = 'seeds: 79 14 55 13';
 
 const SeedToSoilMaps = [
