@@ -30,8 +30,8 @@ export function getData(almanacLine) {
     if(almanacLine.includes(Maps.TempToHumidity))
         return MapTitles.TempToHumidity;
 
-    if(almanacLine.includes(Maps.HumdityToLocation))
-        return MapTitles.HumdityToLocation;
+    if(almanacLine.includes(Maps.HumidityToLocation))
+        return MapTitles.HumidityToLocation;
 
     return false;
 
