@@ -1,4 +1,4 @@
-const Maps = {
+export const Maps = {
     Seeds: 'seeds:',
     SeedToSoil: 'seed-to-soil map:',
     SoilToFert: 'soil-to-fertilizer map:',
@@ -9,7 +9,7 @@ const Maps = {
     HumidityToLocation: 'humidity-to-location map:'
 }
 
-const MapTitles = {
+export const MapTitles = {
     SeedToSoil: 'seedToSoil',
     SoilToFert: 'soilToFert',
     FertToWater: 'fertToWater',
@@ -19,7 +19,18 @@ const MapTitles = {
     HumidityToLocation: 'humidityToLocation'
 }
 
-export const Constants = {
-    Maps,
-    MapTitles
+export const OrderOfTransformations = {
+    0: MapTitles.SeedToSoil,
+    1: MapTitles.SoilToFert,
+    2: MapTitles.FertToWater,
+    3: MapTitles.WaterToLight,
+    4: MapTitles.LightToTemp,
+    5: MapTitles.TempToHumidity,
+    6: MapTitles.HumidityToLocation
+}
+
+export const VALUES = {
+    DESTINATION: 0,
+    SOURCE: 1,
+    RANGE: 2
 }
