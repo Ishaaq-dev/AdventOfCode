@@ -39,6 +39,16 @@ export const OrderOfTransformations = {
     6: MapTitles.HumidityToLocation
 }
 
+export const TYPES = [
+    'soil',
+    'fert',
+    'water',
+    'light',
+    'temp',
+    'humidity',
+    'location'   
+]
+
 export const VALUES = {
     DESTINATION: 0,
     SOURCE: 1,
