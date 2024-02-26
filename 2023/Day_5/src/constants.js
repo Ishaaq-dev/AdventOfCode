@@ -19,6 +19,16 @@ export const MapTitles = {
     HumidityToLocation: 'humidityToLocation'
 }
 
+export const MapTitleToItemName = {
+    seedToSoil: 'soil',
+    soilToFert: 'fert',
+    fertToWater: 'water',
+    waterToLight: 'light',
+    lightToTemp: 'temp',
+    tempToHumidity: 'humidity',
+    humidityToLocation: 'location'
+}
+
 export const OrderOfTransformations = {
     0: MapTitles.SeedToSoil,
     1: MapTitles.SoilToFert,
