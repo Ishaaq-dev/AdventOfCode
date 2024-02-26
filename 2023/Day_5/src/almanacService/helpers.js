@@ -1,4 +1,4 @@
-import { VALUES } from "../constants.js";
+import { TYPES, VALUES } from "../constants.js";
 
 export function getValidLine(map, value) {
     const validLine = map.find(line => {
@@ -18,4 +18,21 @@ export function applyTransformation(validLine, value) {
     const transformed = validLine[VALUES.DESTINATION] + gap;
 
     return transformed;
+}
+
+export function createArrayWithProperty(allTransformations, property) {
+    if(!TYPES.includes(property)) throw new Error(`Property: ${property} not supported`);
+
+    const seeds = Object.keys(allTransformations);
+    const arrayWithProp = seeds.map(seed => {
+        return {seed, [property]: allTransformations[seed][property]};
+    });
+    return arrayWithProp;
+}
+
+export function sortArrayOnProperty(arrayWithProp, property, desc = true) {
+    if (desc)
+        return arrayWithProp.sort((a, b) => a[property] - b[property]);
+    else
+        return arrayWithProp.sort((a, b) => b[property] - a[property]);
 }
