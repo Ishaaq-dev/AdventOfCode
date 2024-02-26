@@ -1,10 +1,10 @@
 import { performTransformations } from "./almanacService.js";
 
 export function getTransformations(almanac) {
-    const locationMap = {};
+    const transformationMap = {};
     const seeds = almanac.seeds;
     seeds.forEach(seed => {
-        locationMap[seed] = performTransformations(almanac.maps, seed);
+        transformationMap[seed] = performTransformations(almanac.maps, seed);
     });
-    return locationMap;
+    return transformationMap;
 }
