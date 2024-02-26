@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { performTransformations, transform } from "../almanacService.js";
+import { getSeedWithLowestProperty, performTransformations, transform } from "../almanacService.js";
 import { TestData } from "../../../tests/testData.js"
 
 describe('transform()', () => {
@@ -380,4 +380,16 @@ describe('performTransformation()', () => {
             expect(result).to.deep.equal(expectedResult);
         });
     });
+});
+
+describe('getSeedWithLowestProperty()', () => {
+    it('Location: should return 35', () => {
+        const input = {
+            transformedAlmanac: TestData.TransformedAlmanac,
+            property: 'location'
+        }
+        const expectedResult = 35;
+        const result = getSeedWithLowestProperty(input.transformedAlmanac, input.property);
+        expect(result.location).to.equal(expectedResult);
+    })
 })
