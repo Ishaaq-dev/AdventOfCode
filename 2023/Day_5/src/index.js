@@ -1,15 +1,16 @@
 import fs from 'fs';
 import { readAlmanac } from './almanacReader/index.js';
-import { getTransformations } from './almanacService/index.js';
+import { getLowestLocation } from './almanacService/index.js';
 
 const data = fs.readFileSync('./data/input.txt', 'utf-8').split('\n');
 
-export function getLowestLocation(data) {
+export function getSeedWithLowestLocation(data) {
     const almanac = readAlmanac(data);
-    const allTransformations = getTransformations(almanac);
+    const lowestLocation = getLowestLocation(almanac);
 
-    console.log('Almanac: ', almanac);
-    console.log('allTransformations: ', allTransformations);
+
+    console.log('almanac: ', almanac);
+    console.log('lowestLocation: ', lowestLocation);
 }
 
-getLowestLocation(data);
+getSeedWithLowestLocation(data);
