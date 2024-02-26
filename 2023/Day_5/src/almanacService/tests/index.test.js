@@ -1,8 +1,8 @@
 import { expect } from 'chai';
-import { getLocations } from "../index.js";
+import { getTransformations } from "../index.js";
 import { TestData } from '../../../tests/testData.js';
 
-describe('getLocations()', () => {
+describe('getTransformations()', () => {
     it('returns locations for each seed', () => {
         const input = TestData.ReadAlmanac;
         //destination value : seed number
@@ -13,7 +13,7 @@ describe('getLocations()', () => {
             82: 79
         };
 
-        const result = getLocations(input);
+        const result = getTransformations(input);
         expect(result).to.deep.equal(expectedResult);
     });
 });
