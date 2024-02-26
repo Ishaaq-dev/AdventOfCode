@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { getValidLine } from "../helpers.js";
+import { applyTransformation, getValidLine } from "../helpers.js";
 import { TestData } from "../../../tests/testData.js"
 
 describe('getValidLine()', () => {
@@ -48,6 +48,34 @@ describe('getValidLine()', () => {
 
             const result = getValidLine(input.map, input.value);
             expect(result).to.deep.equal(expectedResult);
+        });
+    })
+});
+
+describe('applyTransformation()', () => {
+    describe('given a validLine is passed it returns a transformed value', () => {
+        it('seedToSoil -> seed = 79', () => {
+            const input = {
+                validLine: [52, 50, 48],
+                value: 79
+            };
+            const expectedResult = 81;
+
+            const result = applyTransformation(input.validLine, input.value);
+            expect(result).to.equal(expectedResult);
+        });
+    });
+
+    describe('given no validLine is passed it returns the same value', () => {
+        it('soilToFert ->  soil = 81', () => {
+            const input = {
+                validLine: false,
+                value: 81
+            };
+            const expectedResult = 81;
+
+            const result = applyTransformation(input.validLine, input.value);
+            expect(result).to.equal(expectedResult);
         });
     })
 });

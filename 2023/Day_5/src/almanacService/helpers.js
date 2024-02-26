@@ -9,3 +9,13 @@ export function getValidLine(map, value) {
 
     return validLine ?? false;
 }
+
+export function applyTransformation(validLine, value) {
+    if(!validLine) return value;
+
+    const source = validLine[VALUES.SOURCE];
+    const gap = value - source;
+    const transformed = validLine[VALUES.DESTINATION] + gap;
+
+    return transformed;
+}
