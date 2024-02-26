@@ -1,8 +1,7 @@
 import { expect } from 'chai';
 import { TestData } from '../../../tests/testData.js';
 import { getData, getSeeds, getValues } from '../readerService.js';
-import { Constants } from '../constants.js';
-const Maps = Constants.Maps, MapTitles = Constants.MapTitles;
+import { Maps, MapTitles } from '../../constants.js';
 
 describe('getData()', () => {
     it('returns false given an empty line', () => {
