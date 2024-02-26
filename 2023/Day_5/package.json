@@ -5,8 +5,10 @@
   "description": "--- Day 5: If You Give A Seed A Fertilizer --- You take the boat and find the gardener right where you were told he would be: managing a giant \"garden\" that looks more to you like a farm.",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "mocha ./tests/**/*.test.js",
-    "test-reader": "mocha ./src/almanacReader/**/*.test.js"
+    "test-reader": "mocha ./src/almanacReader/**/*.test.js",
+    "test-service": "mocha ./src/almanacService/**/*.test.js"
   },
   "keywords": [],
   "author": "",
