@@ -7,7 +7,7 @@ export function performTransformations(maps, seed) {
     let value = seed;
     for (let i=0; i<numOfTransformations; i++) {
         const mapTitle = OrderOfTransformations[i];
-        const map = almanac[mapTitle];
+        const map = maps[mapTitle];
         const itemName = MapTitleToItemName[mapTitle];
         value = transform(map, value);
         transformed[itemName] = value;
