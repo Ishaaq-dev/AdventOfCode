@@ -1,5 +1,4 @@
-import { Constants } from './constants.js';
-const Maps = Constants.Maps, MapTitles = Constants.MapTitles;
+import { Maps, MapTitles } from '../constants.js';
 
 export function getData(almanacLine) {
     const numRegex = /\d/g;
