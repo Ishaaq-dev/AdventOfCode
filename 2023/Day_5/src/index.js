@@ -8,8 +8,6 @@ export function getSeedWithLowestLocation(data) {
     const almanac = readAlmanac(data);
     const lowestLocation = getLowestLocation(almanac);
 
-
-    console.log('almanac: ', almanac);
     console.log('lowestLocation: ', lowestLocation);
 }
 
