@@ -1,5 +1,5 @@
 import { OrderOfTransformations, MapTitleToItemName } from "../constants.js";
-import { getValidLine, applyTransformation, createArrayWithProperty, sortArrayOnProperty } from "./helpers.js";
+import { transform, createArrayWithProperty, sortArrayOnProperty } from "./helpers.js";
 
 export function performTransformations(maps, seed) {
     const transformed = {};
@@ -13,13 +13,6 @@ export function performTransformations(maps, seed) {
         transformed[itemName] = value;
     }
     return transformed;
-}
-
-export function transform(map, value) {
-    const validLine = getValidLine(map, value);
-    const transformedValue = applyTransformation(validLine, value);
-
-    return transformedValue;
 }
 
 export function getSeedWithLowestProperty(allTransformations, property) {

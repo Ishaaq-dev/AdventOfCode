@@ -1,5 +1,12 @@
 import { TYPES, VALUES } from "../constants.js";
 
+export function transform(map, value) {
+    const validLine = getValidLine(map, value);
+    const transformedValue = applyTransformation(validLine, value);
+
+    return transformedValue;
+}
+
 export function getValidLine(map, value) {
     const validLine = map.find(line => {
         const source = line[VALUES.SOURCE], range = line[VALUES.RANGE];
