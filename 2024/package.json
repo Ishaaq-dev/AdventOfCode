@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "1": "node ./Day_1/src/index.js",
+    "2": "node ./Day_2/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
