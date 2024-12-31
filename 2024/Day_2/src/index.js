@@ -24,4 +24,8 @@ function partOne(reports) {
     return numOfSafeReports;
 }
 
+function partTwo(reports) {
+    
+}
+
 console.log(partOne(readData()));
