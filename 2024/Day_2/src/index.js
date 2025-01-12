@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { valuateLevels } from './partOne.js';
+import { evaluateLevels } from './partTwo.js';
 const data = fs.readFileSync('./Day_2/data/input.txt', 'utf-8').split('\n');
 
 function readData() {
@@ -25,7 +26,12 @@ function partOne(reports) {
 }
 
 function partTwo(reports) {
-    
+    reports.forEach(levels => {
+        if (levels)
+            evaluateLevels(levels);
+    });
 }
 
 console.log(partOne(readData()));
+
+console.log(partTwo(readData()));
